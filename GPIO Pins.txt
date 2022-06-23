@@ -1,0 +1,40 @@
+1 3v3           RST von allen Motoren
+2 5V            
+3 GPIO2         M0 Motor2
+4 5V            VCC Loadcell
+5 GPIO3         M1 Motor2
+6 GND           GND Loadcell
+7 GPIO4         M2 Motor2
+8 GPIO14        M0 Motor1
+9 GND           
+10 GPIO 15      M1 Motor1
+11 GPIO 17      DT Loadcell
+12 GPIO 18      M2 Motor1
+13 GPIO 27      SCK Loadcell
+14 GND          
+15 GPIO22       
+16 GPIO23       DIR Motor2
+17 3V3          
+18 GPIO24       Step Motor2
+19 GPIO10       SLP Motor1
+20 GND          
+21 GPIO9        SLP Motor2
+22 GPIO25       
+23 GPIO11       SLP Motor3
+24 GPIO8        
+25 GND          
+26 GPIO7        
+27 GPIO0        
+28 GPIO1        
+29 GPIO5        M0 Motor3
+30 GND          
+31 GPIO6        M1 Motor3
+32 GPIO12       
+33 GPIO13       M2 Motor3
+34 GND          
+35 GPIO19       DIR Motor3
+36 GPIO16       
+37 GPIO26       Step Motor3
+38 GPIO20       Dir Motor1
+39 GND          GND Motoren (alle)
+40 GPIO21       Step Motor1
