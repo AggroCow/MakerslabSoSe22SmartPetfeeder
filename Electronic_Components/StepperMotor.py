@@ -24,20 +24,15 @@ class StepperMotor:
         for i in range(len(self.mode_pins)):
             self.pi.write(self.mode_pins[i], self.resolution.value[i])
 
-    def turn_motor(self, duration_ms: float, dutycycle: int = 128, frequency: int = 500):
-        # Set duty cycle and frequency
+    def set_turning(self, dutycycle: int = 128, frequency: int = 500):
         self.pi.set_PWM_dutycycle(self.step_pin, dutycycle)  # 50% On 50% Off
         self.pi.set_PWM_frequency(self.step_pin, frequency)  # 500 pulses per second
         self.pi.write(self.sleep_pin, 1)  # wake up driver
-        start_time = time.time()
-        try:
-            while time.time() < start_time + duration_ms:
-                self.pi.write(self.dir_pin, 1)  # 1=clockwise ; 0 = counter clockwise
-        except KeyboardInterrupt:
-            print("\nCtrl-C pressed.  Stopping motor")
-        finally:
-            self.pi.write(self.sleep_pin, 0)  # put driver to sleep
-            self.pi.set_PWM_dutycycle(self.step_pin, 0)  # pwm off
+        self.pi.write(self.dir_pin, 1)  # 1=clockwise ; 0 = counter clockwise
+
+    def stop(self):
+        self.pi.write(self.sleep_pin, 0)  # put driver to sleep
+        self.pi.set_PWM_dutycycle(self.step_pin, 0)  # pwm off
 
     def __repr__(self):
         return f'StepperMotor(sleep_pin={self.sleep_pin}, dir_pin={self.dir_pin}, step_pin={self.step_pin}, mode_pins={self.mode_pins}, resolution={self.resolution})'

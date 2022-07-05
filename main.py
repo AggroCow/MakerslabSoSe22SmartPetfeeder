@@ -1,5 +1,6 @@
 from Electronic_Components.StepperMotor import StepperMotor
 from Electronic_Components.RESOLUTION import RESOLUTION
+import time
 import pigpio
 
 if __name__ == '__main__':
@@ -11,13 +12,36 @@ if __name__ == '__main__':
     motor3: StepperMotor = StepperMotor(sleep_pin=11, dir_pin=19, step_pin=26, mode_pins=(5, 6, 13),
                                         resolution=RESOLUTION.QUARTER, pi=pi)
 
-    print('First Loop')
-    motor1.turn_motor(3)
-    motor2.turn_motor(3)
-    motor3.turn_motor(3)
-    print('Final Loop')
-    motor1.turn_motor(3)
-    motor2.turn_motor(3)
-    motor3.turn_motor(3)
+    print("Turn 1")
+    motor1.set_turning()
+    time.sleep(2)
+    motor1.stop()
+
+    print("Turn 2")
+    motor2.set_turning()
+    time.sleep(2)
+    motor2.stop()
+
+    print("Turn 3")
+    motor3.set_turning()
+    time.sleep(2)
+    motor3.stop()
+
+    print("Turn 1 and 2")
+    motor1.set_turning()
+    motor2.set_turning()
+    time.sleep(2)
+    motor1.stop()
+    motor2.stop()
+
+    print("Turn 1 and 2 and 3")
+    motor1.set_turning()
+    motor2.set_turning()
+    motor3.set_turning()
+    time.sleep(2)
+    motor1.stop()
+    motor2.stop()
+    motor3.stop()
+
     print('Exiting')
     pi.stop()
