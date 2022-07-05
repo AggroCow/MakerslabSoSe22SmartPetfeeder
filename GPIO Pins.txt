@@ -2,7 +2,7 @@
 2 5V            
 3 GPIO2         M0 Motor2
 4 5V            VCC Loadcell
-5 GPIO3         M1 Motor2
+5 GPIO3
 6 GND           GND Loadcell
 7 GPIO4         M2 Motor2
 8 GPIO14        M0 Motor1
@@ -33,7 +33,7 @@
 33 GPIO13       M2 Motor3
 34 GND          
 35 GPIO19       DIR Motor3
-36 GPIO16       
+36 GPIO16       M1 Motor2
 37 GPIO26       Step Motor3
 38 GPIO20       Dir Motor1
 39 GND          GND Motoren (alle)
