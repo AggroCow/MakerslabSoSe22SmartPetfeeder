@@ -58,9 +58,8 @@ if __name__ == '__main__':
         motor2.stop()
         motor3.stop()
     finally:
+        print('Exiting')
         motor1.stop()
         motor2.stop()
         motor3.stop()
-
-    print('Exiting')
-    pi.stop()
+        pi.stop()
